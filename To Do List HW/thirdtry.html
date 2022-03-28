@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todd's To Do List</title>
+    <style>
+        .now-cross{
+            text-decoration:line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>TO-DO LIST</h1>
+    <ul id="list-contents">
+        <li>Coding</li>
+        <li>Small Panic Attack</li>
+        <li>Wash Car</li>
+        <li>Practice CSS</li>
+    </ul>
+    <label for="adding">Need to add to the list?</label>
+        <input type="text" id="addition-to-list" name="adding"/>
+        <button id="submit">Submit</button>
+    <script>
+
+        let button = document.querySelector('button');
+        button.addEventListener('click',function(event){
+            
+            let newLI = document.createElement('li');
+            newLI.innerHTML = document.getElementById('addition-to-list').value;
+
+            let list = document.querySelector('ul');
+            list.appendChild(newLI);
+            document.getElementById('addition-to-list').value = '';
+            
+        });
+
+        let element = document.querySelector("ul");
+        element.addEventListener('click', function(event){
+            event.target.className = "now-cross";
+            setTimeout(() => { event.target.remove(); }, 1000);
+        });
+
+
+    </script>
+</body>
+</html>
